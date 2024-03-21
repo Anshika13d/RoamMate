@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
@@ -62,6 +63,22 @@ function Home({data}) {
       </Card.Body>
     </Card>
     </>
+=======
+import data from './list';
+import CardComp from './CardComp';
+
+function Home() {
+  return (
+    <div className="container">
+      <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4" >
+        {data.map((e, ind) => (
+          <div key={ind} className="col" >
+            <CardComp data={e} />
+          </div>
+        ))}
+      </div>
+    </div>
+>>>>>>> Stashed changes
   );
 }
 
