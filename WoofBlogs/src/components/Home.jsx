@@ -1,85 +1,61 @@
-<<<<<<< Updated upstream
-import Button from 'react-bootstrap/Button';
-import Container from 'react-bootstrap/Container';
-import Form from 'react-bootstrap/Form';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
-import { NavLink } from 'react-router-dom'
-import Card from 'react-bootstrap/Card';
+import React from 'react'
 
+//bootstrap
+import { useState } from 'react';
+import Carousel from 'react-bootstrap/Carousel';
+import { carouselImages } from '../assets/CarouselImg'; 
 
-function Home({data}) {
-  
-  return (
-    <>
-    <Navbar expand="lg" className="bg-body-tertiary">
-      <Container fluid>
-        <Navbar.Brand href="#">Navbar scroll</Navbar.Brand>
-        <Navbar.Toggle aria-controls="navbarScroll" />
-        <Navbar.Collapse id="navbarScroll">
-          <Nav
-            className="me-auto my-2 my-lg-0"
-            style={{ maxHeight: '100px' }}
-            navbarScroll
-          >
-            <Nav.Link href="#action1">Home</Nav.Link>
-            <Nav.Link href="#action2">Link</Nav.Link>
-            <NavDropdown title="Link" id="navbarScrollingDropdown">
-              <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
-              <NavDropdown.Item href="#action4">
-                Another action
-              </NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#action5">
-                Something else here
-              </NavDropdown.Item>
-            </NavDropdown>
-            <Nav.Link href="#" disabled>
-              Link
-            </Nav.Link>
-          </Nav>
-          <Form className="d-flex">
-            <Form.Control
-              type="search"
-              placeholder="Search"
-              className="me-2"
-              aria-label="Search"
-            />
-            <Button variant="outline-success">Search</Button>
-          </Form>
-        </Navbar.Collapse>
-      </Container>
-    </Navbar>
-
-    <Card style={{ width: '18rem' }}>
-      <Card.Img variant="top" src={data.dog1.img} />
-      <Card.Body>
-        <Card.Title>{data.dog1.name } ({data.dog1.age})</Card.Title>
-        <Card.Text>
-          {data.dog1.des}
-        </Card.Text>
-        <Button variant="primary">Explore {data.dog1.name}</Button>
-      </Card.Body>
-    </Card>
-    </>
-=======
-import data from './list';
-import CardComp from './CardComp';
 
 function Home() {
+  const [index, setIndex] = useState(0);
+
+  const handleSelect = (selectedIndex) => {
+    setIndex(selectedIndex);
+  };
+
   return (
-    <div className="container">
-      <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4" >
-        {data.map((e, ind) => (
-          <div key={ind} className="col" >
-            <CardComp data={e} />
-          </div>
-        ))}
-      </div>
-    </div>
->>>>>>> Stashed changes
-  );
+    <>
+      <Carousel activeIndex={index} onSelect={handleSelect}>
+      <Carousel.Item>
+      <img
+            className="d-block w-100"
+            src={carouselImages.dog1} // Using the imported image
+            alt="First slide"
+            style={{height: '530px', filter: 'brightness(60%)'}}
+      />
+        <Carousel.Caption>
+          <p>A dog is the only thing on earth that loves you more than he loves himself.</p>
+        </Carousel.Caption>
+      </Carousel.Item>
+      <Carousel.Item>
+      <img
+            className="d-block w-100"
+            src={carouselImages.dog2} // Using the imported image
+            alt="First slide"
+            style={{height: '530px', filter: 'brightness(60%)'}}
+      />
+        <Carousel.Caption>
+          <p>The world would be a nicer place if everyone had the ability to love as unconditionally as a dog.</p>
+        </Carousel.Caption>
+      </Carousel.Item>
+      <Carousel.Item>
+      <img
+            className="d-block w-100"
+            src={carouselImages.dog3} // Using the imported image
+            alt="First slide"
+            style={{height: 531, filter: 'brightness (60%)'}}
+      />
+        <Carousel.Caption>
+          <p>
+          Happiness is a warm puppy.
+          </p>
+        </Carousel.Caption>
+      </Carousel.Item>
+    </Carousel>
+
+    <h1 style={{textAlign: 'center', paddingTop: '100px'}}>Welcome to {`WoofBlogs`} !</h1>
+    </>
+  )
 }
 
-export default Home;
+export default Home
