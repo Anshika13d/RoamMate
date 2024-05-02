@@ -36,6 +36,11 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import { NavLink, Route, Routes } from 'react-router-dom';
 import About from './components/About';
 
+
+import axios from 'axios';
+//path
+axios.defaults.baseURL = 'http://localhost:5000'
+
 function App() {
   
   return (
